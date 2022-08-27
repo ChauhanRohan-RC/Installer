@@ -1,0 +1,23 @@
+setup.exe requires an info file and data zip and install ico
+
+1. info file:
+   -> name = 'info.cc'
+   -> contains a dictionary dumped by pickle in form :  {'zip_name' : 'main.zip',
+                                                'exe_in_zip': ['reg.exe', 'as.exe', ],  to be executed after extraction, paths relative to zip
+                                                'soft_name': 'Twilight',
+                                                'version': '7.9.8',
+                                                'soft_author': 'Rc',
+                                                'soft_des': 'description'
+                                                'uninstall_key_name': 'Twilight',  in windows registry, to cross check installation
+                                                'main_exe_name': 'Twilight'}   	   main exe name to cross check installation
+                                                'permissions' : 'no'}   'no' or 'yes' (to allow read and write permissions in install dir)
+
+
+2. zip file to be extracted
+   -> name = as defined in info.cc
+   -> zip should not contain root directory, it will be created automatically
+
+3. If previous installation is found (by checking uninstall registry info and main_exe given in info.cc),
+   uinstall option will execute uninstaller with '-force' arg (to avoid any ui)
+
+4. sdk dir should be in same dir as installer.exe, with software source files (main.zip and info.cc) in src dir

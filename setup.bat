@@ -1,0 +1,1 @@
+pyinstaller.exe --onefile --windowed --icon=sdk//icons//install.ico installer.py
